@@ -83,6 +83,7 @@ const formProps: FormItemProps = {
 };
 
 function Account(props: LoginItemProps) {
+  // 继续给子组件传递数据
   return <FormInputItem formProps={formProps} {...config.Account} {...props} />;
 }
 
@@ -103,7 +104,6 @@ function Confirm(props: LoginItemProps) {
             if (value && value !== props.form.getFieldValue('password')) {
               callback('两次输入的密码不一致，请重新输入');
             }
-
             callback();
           },
         },
@@ -131,6 +131,7 @@ function Code(props: LoginItemProps) {
   }, []);
 
   return (
+    // 这还是个子组件
     <FormInputItem
       formProps={{ children: null }}
       {...config.Code}

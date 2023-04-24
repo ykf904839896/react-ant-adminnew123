@@ -10,6 +10,7 @@ import FormWrap from '../component/FormWrap';
 import LoginItem from '../component/LoginItem';
 
 interface LoginProps extends RouteComponentProps {
+  // ts - 函数类型
   setUserInfo: (userInfo: UserState) => void;
 }
 
@@ -36,6 +37,7 @@ function Login(props: LoginProps) {
 
   const onSubmit = useCallback(() => {
     form.validateFields().then(res => {
+      // res是表单的参数
       const values = res as FormProp;
       if (values.account && values.password) {
         apiUserLogin({
@@ -43,6 +45,7 @@ function Login(props: LoginProps) {
           password: values.password,
         })
           .then(({ data }: { data: UserState }) => {
+            // 调用父组件的方法
             props.setUserInfo(data);
             next();
           })
@@ -91,6 +94,7 @@ function Login(props: LoginProps) {
         </Form.Item>
 
         <Form.Item>
+          {/* 直接调用上面的handleSubmit方法 */}
           <Button block htmlType="submit" type="primary">
             登录
           </Button>
