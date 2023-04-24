@@ -2,7 +2,7 @@
 
 `React Ant Admin` 是参考 `Ant Design Pro` 的 `UI`，抛开 `Ant Design Pro` 的实现，完整的从零开发一个 `React Admin System`
 
-#### 介绍
+#### 介绍1
 
 最开始的时候，我需要一个 `react` 开发的 `amdin` 模版，在开源社区寻找了一边之后，比较中意 `ant design pro` 的 `UI`，当我一堆操作把 `ant desgin pro` 的代码拉下来研究之后，发现内容是在太多了，除了 `react`、`redux` 之外，还包含了 `umi`、`dva`、`ant-design/pro-layout` 等其它东西，当这些概念和 `ts` 结合起来使用的时候，我瞬间感觉无处下手，后面又仔细了阅读了权限设计、菜单栏渲染部分的代码，我得出结论， `Ant Design Pro` 足够优秀，但不适合我的需求场景。很遗憾，只能放弃使用
 
