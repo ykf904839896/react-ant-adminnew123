@@ -90,7 +90,6 @@ function RecoveryPwd() {
                 return null;
             }
           })()}
-
           {current < 2 && (
             <Form.Item style={{ paddingTop: '30px' }}>
               <Button htmlType="submit" block type="primary">
