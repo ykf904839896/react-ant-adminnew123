@@ -19,6 +19,7 @@ function Register(props: RegisterProps) {
 
   const onSubmit = useCallback(() => {
     form.validateFields().then(res => {
+      // 断言返回值的类型
       const values = res as FormProp;
       apiCreateUser(values)
         .then(({ data }) => {
@@ -31,6 +32,7 @@ function Register(props: RegisterProps) {
   return (
     <FormWrap>
       <Form onFinish={onSubmit} form={form}>
+        {/* 给子组件传参 */}
         <LoginItem.Account form={form} />
         <LoginItem.Password form={form} />
         <LoginItem.Confirm form={form} />
@@ -39,6 +41,7 @@ function Register(props: RegisterProps) {
 
         <Form.Item>
           <div className="align--between vertical-middle">
+            {/* htmlType="submit"关键 */}
             <Button htmlType="submit" type="primary" style={{ width: '150px' }}>
               注册
             </Button>

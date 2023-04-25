@@ -9,6 +9,7 @@ interface RegisterResultParams {
 }
 
 function RegisterResult() {
+  // 定义返回值的类型 RegisterResultParams
   const params = useParams<RegisterResultParams>();
 
   return (

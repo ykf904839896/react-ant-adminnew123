@@ -8,6 +8,7 @@ function Error403() {
       status="403"
       title="403"
       subTitle="系统提示：你暂无有访问该页面的权限，请联系管理员添加权限后使用"
+      // 文字使用双引号 jsx表达式或者变量使用单大括号
       extra={
         <Button type="primary">
           <Link to="/">返回首页</Link>

@@ -8,29 +8,22 @@ import PageWrap from '../../components/PageWrap';
 import { PageResponseData } from '../../../typings';
 import AddOrEdit from './AddOrEdit';
 
-const UserButton = memo(
-  ({
-    index,
-    onButtonClick,
-  }: {
-    index: number;
-    onButtonClick: (type: string, index: number) => void;
-  }) => (
-    <React.Fragment>
-      <Button
-        size="small"
-        style={{ marginRight: '10px' }}
-        onClick={() => onButtonClick('edit', index)}
-        type="link"
-      >
-        编辑
-      </Button>
-      <Button size="small" type="link" onClick={() => onButtonClick('remove', index)}>
-        删除
-      </Button>
-    </React.Fragment>
-  ),
-);
+const UserButton = memo(({ index, onButtonClick }: { // ts-给任何的参数，变量，函数加上类型
+  index: number; onButtonClick: (type: string, index: number) => void }) => (
+  <React.Fragment>
+    <Button
+      size="small"
+      style={{ marginRight: '10px' }}
+      onClick={() => onButtonClick('edit', index)}
+      type="link"
+    >
+      编辑
+    </Button>
+    <Button size="small" type="link" onClick={() => onButtonClick('remove', index)}>
+      删除
+    </Button>
+  </React.Fragment>
+));
 
 function UserManage() {
   const formList = useMemo<SearchFormItem[]>(
@@ -63,12 +56,11 @@ function UserManage() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [page, setPage] = useState<{ page: number; size: number }>({ page: 1, size: 10 });
-
+  // 定义对象
   const [userData, setUserData] = useState<{ list: User[]; page: PageResponseData }>({
     list: [],
     page: {},
   });
-
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   const initPageList = async (params?: UserSearchParams) => {
@@ -136,7 +128,7 @@ function UserManage() {
   const onAddUser = useCallback(() => {
     setCurrentUser(null);
     setEditVisible(true);
-  }, []);
+  }, [userData.list]);
 
   const onTableChange = useCallback(({ current, pageSize }: PaginationProps) => {
     setPage({ page: current as number, size: pageSize as number });
@@ -148,6 +140,7 @@ function UserManage() {
       <SearchForm
         formList={formList}
         actions={actions}
+        // 给子组件传递方法
         onSearch={onSearch}
         onClick={onAddUser}
       ></SearchForm>

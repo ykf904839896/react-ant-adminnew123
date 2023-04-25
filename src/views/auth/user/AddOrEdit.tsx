@@ -12,6 +12,7 @@ export interface AddOrEditUserProps {
   visible: boolean;
   user: User | null;
   token: string;
+  // 定义函数的返回值
   onClose: () => void;
   onConfirm: () => void;
 }
@@ -33,6 +34,7 @@ interface AddOrEditUserFormProps {
 }
 
 function AddOrEditUser(props: AddOrEditUserProps) {
+  // props父组件传递的参数
   const { user, visible } = props;
   const [form] = Form.useForm();
 
@@ -119,6 +121,7 @@ function AddOrEditUser(props: AddOrEditUserProps) {
         <Form.Item
           label="用户账号"
           name="account"
+          // 大括号里可以包含对象 可以包含数组
           rules={[{ required: true, message: '请输入用户账号' }]}
         >
           <Input />

@@ -14,6 +14,7 @@ export interface CreateUserResponse {
 }
 
 export function apiCreateUser(data: CreateUserData) {
+  //  request<CreateUserResponse>--ts定义返回值的类型
   return request<CreateUserResponse>({
     method: 'POST',
     url: '/user/register',

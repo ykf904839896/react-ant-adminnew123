@@ -47,6 +47,7 @@ function RecoveryPwd() {
     <>
       <Row justify="center">
         <Col span={8}>
+          {/* 大括号仍然包含的是变量，但是可以包含对象，就变成了双大括号 */}
           <Steps progressDot current={current} style={{ marginTop: '100px' }}>
             <Steps.Step title="验证手机号" />
             <Steps.Step title="填写新密码" />
