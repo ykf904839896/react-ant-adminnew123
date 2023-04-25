@@ -34,7 +34,7 @@ interface AddOrEditUserFormProps {
 }
 
 function AddOrEditUser(props: AddOrEditUserProps) {
-  // props父组件传递的参数
+  // props是父组件传递的参数
   const { user, visible } = props;
   const [form] = Form.useForm();
 
